@@ -1,8 +1,8 @@
 name: econ
-ckpt_dir: "./data/ckpt/"
-normal_path: "./data/ckpt/normal.ckpt"
-ifnet_path: "./data/ckpt/ifnet.ckpt"
-results_path: "./results"
+ckpt_dir: "./clothing/ECON/data/ckpt/"
+normal_path: "./clothing/ECON/data/ckpt/normal.ckpt"
+ifnet_path: "./clothing/ECON/data/ckpt/ifnet.ckpt"
+results_path: "./clothing/ECON/results"
 
 net:
   in_nml: (('image',3), ('T_normal_F',3), ('T_normal_B',3))

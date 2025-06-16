@@ -388,4 +388,20 @@ if args.uv:
         fp.write(f"Ns 0.000000 \n")
         fp.write(f"map_Kd texture.png \n")
 
+    # Export A-pose mesh
     export_obj(posed_econ_verts[0].detach().cpu().numpy(), f_np, vt, ft, f"{cache_path}/mesh.obj")
+    
+    # Generate original pose vertices
+    original_pose = smpl_out_lst[3].full_pose  # smpl_out_lst[3] is the original pose
+    
+    original_posed_econ_verts, _ = general_lbs(
+        pose=original_pose,
+        v_template=econ_cano_verts.unsqueeze(0),
+        posedirs=econ_posedirs,
+        J_regressor=econ_J_regressor,
+        parents=smpl_model.parents,
+        lbs_weights=econ_lbs_weights,
+    )
+    
+    # Export original pose mesh
+    export_obj(original_posed_econ_verts[0].detach().cpu().numpy(), f_np, vt, ft, f"{cache_path}/mesh_original_pose.obj")
