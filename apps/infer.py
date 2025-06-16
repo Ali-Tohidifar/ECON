@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     # cfg read and merge
     cfg.merge_from_file(args.config)
-    cfg.merge_from_file("./lib/pymafx/configs/pymafx_config.yaml")
+    cfg.merge_from_file("./clothing/ECON/lib/pymafx/configs/pymafx_config.yaml")
     device = torch.device(f"cuda:{args.gpu_device}")
 
     # setting for testing on in-the-wild images
