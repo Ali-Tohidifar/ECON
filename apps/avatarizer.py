@@ -2,6 +2,13 @@ import argparse
 import os
 import os.path as osp
 
+import sys
+
+# Add ECON directory to Python path
+script_dir = osp.dirname(osp.abspath(__file__))
+econ_dir = osp.dirname(script_dir)  # Go up one level from apps/ to ECON/
+sys.path.insert(0, econ_dir)
+
 import numpy as np
 import torch
 import trimesh
